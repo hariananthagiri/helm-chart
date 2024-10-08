@@ -54,3 +54,14 @@ deployment:
   replicas: 3
   imageVersion: mainline-alpine3.18-perl
 ```
+* we have install ebs drivers to our helm folder as below in VM
+```
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+helm repo update
+helm upgrade --install aws-ebs-csi-driver --namespace kube-system aws-ebs-csi-driver/aws-ebs-csi-driver
+helm list -n kube-system
+```
+* to uninstall the driver use below command
+```
+helm uninstall aws-ebs-csi-driver -n kube-system
+```
