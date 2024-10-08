@@ -52,4 +52,5 @@ appVersion: 1.0.1 # apk version
 ```yaml
 deployment:
   replicas: 3
+  imageVersion: mainline-alpine3.18-perl
 ```
