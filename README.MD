@@ -1,6 +1,7 @@
 # HELM CHART
 * templatise the kubernetes manifests
 * package manager for kubernetes
+* to parameterise the values used in manifest.yaml we use helm sheet
 
 * **INSTALLATION**
 ```
@@ -68,6 +69,7 @@ deployment:
 ```
 * we can set the values.yaml file values at command line by using below command
 ```
+--set key=value
 <command> --set deployment.replicas=10
 helm upgrade nginx --set deployment.replicas=10
 ```
@@ -88,7 +90,11 @@ helm uninstall aws-ebs-csi-driver -n kube-system
 ```
 #### Statefulset
 * it is used to create stateful applications in kubernetes
+* podes inside stateful applications should have static hostnames to communicate with other nodes
+* stateful applications should follow orderly provisioning as well as terminaete 
+* statefulset applications will have headless service.
+* it definetly requied PV or PVC
 * **deployment**  
-    * it is used to create stateless applications in kubernetes
+    * it is used to create stateless (i.e no own database) applications in kubernetes
 
 
