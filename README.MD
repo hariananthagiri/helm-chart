@@ -21,6 +21,18 @@ helm list
 ```
 helm upgrade <app-name> .
 ```
+* to see the history how many times we deployed in helm use below command
+```
+helm history <app-name>
+```
+* to do the rollback in helm use below command
+```
+helm rollback <app-name>
+```
+* to goto particular revision in helm use below command
+```
+helm history relese revision
+```
 1. Chart.yaml
     * the first step is helm chart is Chart.yaml as shown in below
 ```yaml
@@ -54,6 +66,15 @@ deployment:
   replicas: 3
   imageVersion: mainline-alpine3.18-perl
 ```
+* we can set the values.yaml file values at command line by using below command
+```
+<command> --set deployment.replicas=10
+helm upgrade nginx --set deployment.replicas=10
+```
+* to see all the volues stored in volues.yaml file use below command
+```
+helm show values . 
+```
 * we have install ebs drivers to our helm folder as below in VM
 ```
 helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
@@ -65,3 +86,9 @@ helm list -n kube-system
 ```
 helm uninstall aws-ebs-csi-driver -n kube-system
 ```
+#### Statefulset
+* it is used to create stateful applications in kubernetes
+* **deployment**  
+    * it is used to create stateless applications in kubernetes
+
+
